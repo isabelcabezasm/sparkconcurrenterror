@@ -1,0 +1,4 @@
+src/sample/sample.egg*
+src/sample/build/*
+src/sample/dist/*
+src/sample/.vscode/*
