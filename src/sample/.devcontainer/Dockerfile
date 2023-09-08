@@ -1,6 +1,4 @@
-# Allow external collaborators to use a public base image instead
-ARG PYTHON_BASE_IMAGE
-FROM ${PYTHON_BASE_IMAGE}
+FROM python:3.9.5
 
 # Configure apt
 ENV DEBIAN_FRONTEND=noninteractive
