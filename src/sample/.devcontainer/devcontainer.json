@@ -22,5 +22,5 @@
 			]
 		}
 	},
-	"postCreateCommand": "make install-dev && /workspace/c4m_common/scripts/install-spark-packages.sh -p delta"
+	"postCreateCommand": "make install-dev && /workspace/scripts/install-spark-packages.sh -p delta"
 }
