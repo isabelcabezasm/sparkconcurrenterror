@@ -1,0 +1,26 @@
+{
+	"name": "PySpark",
+	"dockerComposeFile": "docker-compose.yml",
+	"workspaceFolder": "/workspace/src/sample",
+	"service": "pyspark",
+	"customizations": {
+		"vscode": {
+			"settings": {
+				"python.defaultInterpreterPath": "/usr/local/bin/python",
+				"python.linting.mypyEnabled": true,
+				"python.linting.ignorePatterns": [
+					"**/site-packages/**/*.py",
+					".vscode/*.py"
+				],
+				"mypy-type-checker.args": ["--follow-imports=normal"]
+			},
+			"extensions": [
+				"ms-python.python",
+				"ms-python.flake8",
+				"ms-python.mypy-type-checker",
+				"tamasfe.even-better-toml"
+			]
+		}
+	},
+	"postCreateCommand": "make install-dev && /workspace/c4m_common/scripts/install-spark-packages.sh -p delta"
+}
