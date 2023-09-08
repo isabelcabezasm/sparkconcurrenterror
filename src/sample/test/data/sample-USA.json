@@ -1,0 +1,20 @@
+[
+    {
+    "user_id": "1",
+    "name": "Isabella Martinez",
+    "city": "San Diego",
+    "country": "USA"
+},
+{
+    "user_id": "2",
+    "name": "Olivia Johnson",
+    "city": "Philadelphia",
+    "country": "USA"
+},
+{
+    "user_id": "3",
+    "name": "Mia Davis",
+    "city": "Houston",
+    "country": "USA"
+}
+]

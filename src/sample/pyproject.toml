@@ -1,0 +1,38 @@
+[project]
+name = "sample"
+version = "0.1"
+readme = "README.md"
+dependencies = [
+    "pyspark~=3.3.0",
+    "delta-spark~=2.3.0",
+]
+
+[project.optional-dependencies]
+test = [
+    "flake8",
+    "pytest",
+    "pytest-cov",
+    "pytest-runner",
+    "mypy",
+]
+descriptor = [
+    "openpyxl",
+    "types-openpyxl"
+]
+develop = [
+    "build",
+    "watchdog",
+    "databricks-cli",
+    "autopep8",
+]
+build = [
+    "setuptools ~= 68.0",
+    "wheel ~= 0.41",
+]
+
+[build-system]
+requires = ["setuptools ~= 68.0", "wheel ~= 0.41"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.dynamic]
+version = {attr = "package.__version__"}
