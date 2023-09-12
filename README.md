@@ -3,9 +3,25 @@
 
 This repository has been created to illustrate the next issue:
 
-As you can see, I have exaclty the same code in a python [library installed in the cluster (wheel package)](src/sample/concurrent_error/main.py) and in a [notebook](notebooks/code-in-the-notebook1.ipynb). But it works in a different way.
+As you can see, I have exactly the same code in a python [library installed in the cluster (wheel package)](src/sample/concurrent_error/main.py) and in a [notebook](notebooks/code-in-the-notebook1.ipynb). 
 
-When I execute both in parallel in the notebooks, I don't have any errors, but a ConcurrentAppendException appears when I execute the code in the library.
+Notebooks [code-in-the-notebook1.ipynb](notebooks/code-in-the-notebook1.ipynb) and [code-in-the-notebook2.ipynb](notebooks/code-in-the-notebook2.ipynb) has the implementation directly in the cells.
+And notebooks [mysampleforthebug](notebooks/mysampleforthebug.ipynb) and [mysampleforthebug2](notebooks/mysampleforthebug2.ipynb) call a library that has the same code [implementation here](src/sample/concurrent_error/main.py).
+
+Although both piece of code are identical, they work in a different way. 
+
+When I execute both in parallel in the notebooks `code-in-the-notebook1.ipynb` and `code-in-the-notebook2.ipynb`, I don't have any errors.
+But a ConcurrentAppendException appears when I execute the code in the library (notebooks `mysampleforthebug` and `mysampleforthebug2`)
+
+## What my sample code makes
+- Configuration to connect to ADLS
+- Sample data (source) and target url (for a DeltaTable) in the ADLS
+- Define shema of the sample data
+- Read [sample data](sample-data) (json) from ADLS, `data_frame_sample_1` has `sample1.json` data and `data_frame_sample_2` has sample2.json data.
+- Create (or get if exists) a DeltaTable in ADLS.
+- Merge data_frame_sample_1 or 2 in this DeltaTable.
+
+The concurrent error appears only when the code is in a Python library (not directly in the code) when both notebooks are run at the same time.
 
 ## How to reproduce the error
 Sample data and delta table are in a [ADLS](https://learn.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-introduction) so if you want to execute this library/notebooks you will need to connect the ADLS to Databricks following instructions: [Tutorial: Connect to Azure Data Lake Storage Gen2](https://learn.microsoft.com/en-us/azure/databricks/getting-started/connect-to-azure-storage) 
