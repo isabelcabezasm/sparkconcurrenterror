@@ -3,9 +3,15 @@
 
 This repository has been created to illustrate the next issue:
 
-As you can see, I have exaclty the same code in a python [library installed in the cluster (wheel package)](src/sample/concurrent_error/main.py) and in a [notebook](notebooks/code-in-the-notebook1.ipynb). But it works in a different way.
+As you can see, I have exactly the same code in a python [library installed in the cluster (wheel package)](src/sample/concurrent_error/main.py) and in a [notebook](notebooks/code-in-the-notebook1.ipynb). 
 
-When I execute both in parallel in the notebooks, I don't have any errors, but a ConcurrentAppendException appears when I execute the code in the library.
+Notebooks [code-in-the-notebook1.ipynb](notebooks/code-in-the-notebook1.ipynb) and [code-in-the-notebook2.ipynb](notebooks/code-in-the-notebook2.ipynb) has the implementation directly in the cells.
+And notebooks [mysampleforthebug](notebooks/mysampleforthebug.ipynb) and [mysampleforthebug2](notebooks/mysampleforthebug2.ipynb) call a library that has the same code [implementation here](src/sample/concurrent_error/main.py).
+
+Although both piece of code are identical, they work in a different way. 
+
+When I execute both in parallel in the notebooks `code-in-the-notebook1.ipynb` and `code-in-the-notebook2.ipynb`, I don't have any errors.
+But a ConcurrentAppendException appears when I execute the code in the library (notebooks `mysampleforthebug` and `mysampleforthebug2`)
 
 ## What my sample code makes
 - Configuration to connect to ADLS
