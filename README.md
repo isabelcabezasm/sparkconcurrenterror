@@ -1,4 +1,4 @@
-# Spark Concurrent Error
+# DeltaTable Concurrent Error
 
 
 This repository has been created to illustrate the next issue:
